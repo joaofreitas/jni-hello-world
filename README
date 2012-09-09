@@ -1,0 +1,11 @@
+Execução
+
+1. Compilar o HelloWorld.java
+2. Gerar a interface .h em formato jni. Para isso, use 
+	javah -jni -classpath bin/ br.com.jni.example.HelloWorld
+
+3. Compilar o arquivo .c com o seguinte comando
+	g++ -shared HelloWorld.c -o libHelloWorld.so -I/usr/lib/jvm/jdk1.7.0_01/include -I/usr/lib/jvm/jdk1.7.0_01/include/linux -fPIC
+
+4. Executar o arquivo java com o seguinte argumento
+	-Djava.library.path=<path-do-projeto>/jni-hello-world/src/hello-world
